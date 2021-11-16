@@ -21,7 +21,7 @@ public class MinCostClimbingStairs {
         if(memo.containsKey(currentKey)){
             return memo.get(currentKey);
         }
-
+//
         int oneJump = cost[currentIndex] + minCost(cost, currentIndex + 1,memo);
         int twoJumps = cost[currentIndex] + minCost(cost, currentIndex + 2,memo);
 
