@@ -39,3 +39,6 @@ public class JumpGameII {
         System.out.println(jump(nums)); // 2
     }
 }
+
+// time complexity O(n * max(nums))
+// space complexity O(n)
