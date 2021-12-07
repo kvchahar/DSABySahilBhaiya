@@ -53,4 +53,62 @@ public class LinkedListImpl {
             temp = temp.next;
         }
     }
+
+    public Node addNodeInetweenTwoNodes(Node newNode, Node n1, Node n2) {
+        n1.next = newNode;
+        newNode.next = n2;
+        return head;
+    }
+
+    public Node addNodeAtEnd(Node newNode) {
+        Node current = head;
+
+        if (current == null) {
+            return newNode;
+        }
+        while (current != null) {
+            current = current.next;
+        }
+        current.next = newNode;
+        return head;
+    }
+
+    public Node addNodeAfterNode(Node newNode, Node n1) {
+        Node current = head;
+
+        while (current != null && current != n1) {
+            current = current.next;
+        }
+
+        Node tempNode = current.next;
+        current.next = newNode;
+        newNode.next = tempNode;
+        return head;
+    }
+
+    public Node deleteAtFront() {
+
+        if (head == null) {
+            return head;
+        }
+        Node tempNode = head.next;
+        head.next = null;
+        head = tempNode;
+        return head;
+    }
+
+    public Node deleteFromEnd() {
+
+        Node dummyNode = new Node(-1);
+        dummyNode.next = head;
+        Node prev = dummyNode;
+        Node current = head;
+
+        while (current.next != null) {
+            prev = current;
+            current = current.next;
+        }
+        prev.next = current.next;
+        return dummyNode.next;
+    }
 }

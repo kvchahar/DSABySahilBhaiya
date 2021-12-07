@@ -9,5 +9,8 @@ public class Main {
         System.out.println("After Insertion at front");
         list.addNodeAtFront(22);
         list.display();
+        list.deleteAtFront();
+        System.out.println();
+        list.display();
     }
 }
