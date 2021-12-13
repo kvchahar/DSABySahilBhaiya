@@ -3,7 +3,7 @@ package linkedlist.myprograms;
 import linkedlist.leetcode_programs.node.Node;
 
 public class OddEven {
-    void rearrangeEvenOdd(Node head) {
+    Node divide(int N, Node head){
         Node oddDummyNode = new Node(-101);
         Node evenDummyNode = new Node(-101);
         Node current1 = oddDummyNode;
@@ -22,6 +22,7 @@ public class OddEven {
                 current = current.next;
             }
         }
-        current1.next = evenDummyNode.next;
+        current2.next = oddDummyNode.next;
+        return evenDummyNode.next;
     }
 }
