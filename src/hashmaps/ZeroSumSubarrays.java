@@ -26,7 +26,7 @@ public class ZeroSumSubarrays {
     }
 
     public static void main(String[] args) {
-        long[] arr = {6,-1,-3,4,-2,2,4,6,-12,-7};
+        long[] arr = {0,0,5,5,0,0};
         System.out.println(findSubarray(arr,arr.length)); // 4
     }
 }
