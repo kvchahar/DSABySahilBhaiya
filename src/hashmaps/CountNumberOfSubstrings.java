@@ -48,7 +48,7 @@ public class CountNumberOfSubstrings {
     }
 
     public static void main(String[] args) {
-        String S = "abaaca";
+        String S = "abc";
         int K = 1;
         System.out.println(substrCount(S,K)); // 7
     }
