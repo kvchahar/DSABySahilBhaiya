@@ -2,7 +2,7 @@ package dynamicprogramming;
 
 import java.util.HashMap;
 
-class PartitionEqualSubsetProblem {
+class PartitionEqualSubsetSum {
     public boolean canPartition(int[] nums) {
 
         int total = 0;
@@ -52,7 +52,7 @@ class PartitionEqualSubsetProblem {
     }
 
     public static void main(String[] args) {
-        PartitionEqualSubsetProblem p = new PartitionEqualSubsetProblem();
+        PartitionEqualSubsetSum p = new PartitionEqualSubsetSum();
         int[] nums = {1,5,11,5};
         System.out.println(p.canPartition(nums));
     }
