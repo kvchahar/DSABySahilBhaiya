@@ -1,41 +1,30 @@
 package dynamicprogramming;
 
-import java.util.HashMap;
-
 public class JumpGame {
-    public static boolean canJump(int[] nums) {
-        return isPossible(nums,0, new HashMap<>());
+
+    boolean isPossible = false;
+
+    public boolean canJump(int[] nums) {
+        return isPossible(0,new boolean[nums.length],nums);
     }
 
-    public static boolean isPossible(int[] nums, int currentIndex, HashMap<Integer,Boolean> memo){
+    private boolean isPossible(int currentPos, boolean[] badPaths, int[] nums){
 
-
-        if(currentIndex>=nums.length-1){
+        if(currentPos==nums.length-1){
             return true;
         }
 
-        int currentKey = currentIndex;
+        if(badPaths[currentPos]) return false;
 
-        if(memo.containsKey(currentKey)){
-            return memo.get(currentKey);
+        int range = nums[currentPos];
+
+        for(int i = 1; i <= range; i++) {
+            if(isPossible(currentPos + i,badPaths,nums)) {
+                return true;
+            }
         }
 
-
-        int currentValue = nums[currentIndex];
-        boolean ans = false;
-
-        for(int i=1; i<=currentValue; i++){
-
-            boolean temp = isPossible(nums, currentIndex + i, memo);
-            ans = ans || temp;
-            memo.put(currentKey,ans);
-
-        }
-        return ans;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {2,3,1,1,4}; // true
-        System.out.println(canJump(nums));
+        badPaths[currentPos] = true;
+        return false;
     }
 }
