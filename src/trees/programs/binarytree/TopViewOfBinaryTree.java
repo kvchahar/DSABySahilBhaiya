@@ -1,4 +1,4 @@
-package trees.programs;
+package trees.programs.binarytree;
 
 
 import trees.TreeNode.TreeNode;
@@ -8,11 +8,11 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class Pair{
+class Pair1{
     TreeNode node;
     int hd;
 
-    Pair(TreeNode node, int hd){
+    Pair1(TreeNode node, int hd){
         this.node = node;
         this.hd = hd;
     }
@@ -35,12 +35,12 @@ public class TopViewOfBinaryTree
 
         HashMap<Integer,Integer> memo = new HashMap<>();
 
-        Queue<Pair> queue = new LinkedList<>();
+        Queue<Pair1> queue = new LinkedList<>();
 
-        queue.add(new Pair(root,0));
+        queue.add(new Pair1(root,0));
 
         while(!queue.isEmpty()){
-            Pair currentPair = queue.remove();
+            Pair1 currentPair = queue.remove();
             TreeNode currentNode = currentPair.node;
             int currentHd = currentPair.hd;
 
@@ -52,11 +52,11 @@ public class TopViewOfBinaryTree
             }
 
             if(currentNode.left!=null){
-                queue.add(new Pair(currentNode.left,currentHd-1));
+                queue.add(new Pair1(currentNode.left,currentHd-1));
             }
 
             if(currentNode.right!=null){
-                queue.add(new Pair(currentNode.right,currentHd+1));
+                queue.add(new Pair1(currentNode.right,currentHd+1));
             }
         }
 
