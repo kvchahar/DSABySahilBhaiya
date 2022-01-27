@@ -1,3 +1,5 @@
+package trie;
+
 class Node {
 
     Node links[] = new Node[26];
@@ -6,7 +8,6 @@ class Node {
     public Node(){
 
     }
-
 
     boolean containsKey(char ch){
         return (links[ch-'a']!=null);
@@ -28,7 +29,6 @@ class Node {
         return flag;
     }
 };
-
 
 public class Trie {
 
@@ -63,8 +63,6 @@ public class Trie {
         }
         return false;
     }
-
-
 
     public static boolean startsWith(String prefix) {
         Node node = root;
