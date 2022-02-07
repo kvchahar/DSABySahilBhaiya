@@ -38,6 +38,5 @@ public class AllPathsFromSourceToTarget {
         }
         visited[currentNode] = false;
         currentPath.remove(currentPath.size() - 1);
-        return;
     }
 }
