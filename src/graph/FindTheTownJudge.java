@@ -5,9 +5,9 @@ public class FindTheTownJudge {
         int[] inDegree = new int[n + 1];
         int[] outDegree = new int[n + 1];
 
-        for (int i = 0; i < trust.length; i++) {
-            int vertex = trust[i][0];
-            int edge = trust[i][1];
+        for (int[] ints : trust) {
+            int vertex = ints[0];
+            int edge = ints[1];
 
             outDegree[vertex] += 1;
             inDegree[edge] += 1;
