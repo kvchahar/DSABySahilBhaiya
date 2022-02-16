@@ -31,8 +31,7 @@ public class KnightTour {
         knightTour(grid, currentRow + 1, currentCol + 2, upcomingMove + 1, n);
         knightTour(grid, currentRow + 1, currentCol - 2, upcomingMove + 1, n);
 
-        grid[currentRow][currentCol] = 0;
-        return;
+//        grid[currentRow][currentCol] = 0;
     }
 
     private static void displayResult(int[][] grid) {
