@@ -57,7 +57,7 @@ public class IsBipartite {
 
         for(int i = 0; i<graph.length; i++){
             if(coloured[i]==-1){
-                if(!isBipartiteGraph(i,coloured,graph)){
+                if(!isBipartiteGraph(i,coloured,0,graph)){
                     return false;
                 }
             }
@@ -65,23 +65,16 @@ public class IsBipartite {
         return true;
     }
 
-    private boolean isBipartiteGraph(int node, int[] coloured, int[][] graph){
+    private boolean isBipartiteGraph(int node, int[] coloured, int color,int[][] graph){
 
-        if(coloured[node]==-1){
-            if(coloured[node]==1){
-                coloured[node]=0;
-            }else if(coloured[node]==0){
-                coloured[node]=1;
-            }
+        if(coloured[node]!=-1){
+            return coloured[node] == color;
         }
 
-        for(int elem : graph[node]){
-            if(coloured[elem]==-1){
-                coloured[elem] = 1 - coloured[node];
-                if(!isBipartiteGraph(elem,coloured,graph)){
-                    return false;
-                }
-            }else if(coloured[elem]==coloured[node]){
+        coloured[node] = color;
+
+        for(int neighbour : graph[node]){
+            if(!isBipartiteGraph(neighbour,coloured,1-color,graph)){
                 return false;
             }
         }
