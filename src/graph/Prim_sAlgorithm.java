@@ -1,7 +1,6 @@
 package graph;
 
 import java.util.ArrayList;
-
 class Nodes {
     int vertex;
     int weight;
