@@ -21,7 +21,7 @@ public class SubarrayWithGivenSum {
                 sum += arr[release - 1];
             }
         }
-        return new ArrayList<Integer>(Arrays.asList(-1));
+        return new ArrayList<>(Arrays.asList(-1));
     }
 
     public static void main(String[] args) {
