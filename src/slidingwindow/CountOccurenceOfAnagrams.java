@@ -3,7 +3,7 @@ package slidingwindow;
 import java.util.HashMap;
 
 public class CountOccurenceOfAnagrams {
-    int search(String pat, String txt) {
+    static int search(String pat, String txt) {
 
         HashMap<Character,Integer> map = new HashMap<>();
         for(int acquire = 0; acquire<pat.length(); acquire++){
@@ -13,7 +13,6 @@ public class CountOccurenceOfAnagrams {
             }else{
                 map.put(ch,1);
             }
-
         }
 
         int distinct = map.size(), count = 0;
@@ -53,5 +52,12 @@ public class CountOccurenceOfAnagrams {
             }
         }
         return count;
+    }
+
+    public static void main(String[] args) {
+        String pat = "for";
+        String txt = "forxxorfxdofr";
+
+        System.out.println(search(pat,txt));
     }
 }
