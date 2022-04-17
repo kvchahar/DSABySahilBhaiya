@@ -1,31 +1,32 @@
 package dynamicprogramming;
 
+import java.util.Arrays;
+
 public class SubsetSumProblem {
+    static boolean subsetSumUtil(int ind, int target, int[] arr, int[][] dp) {
+        if (target == 0)
+            return true;
 
-    static boolean isSubsetSum(int n, int[] set, int sum) {
-        boolean subset[][] = new boolean[sum + 1][n + 1];
+        if (ind == 0)
+            return arr[0] == target;
 
-        for (int i = 0; i <= n; i++)
-            subset[0][i] = true;
+        if (dp[ind][target] != -1)
+            return dp[ind][target] != 0;
 
-        for (int i = 1; i <= sum; i++)
-            subset[i][0] = false;
+        boolean notTaken = subsetSumUtil(ind - 1, target, arr, dp);
 
-        // Fill the subset table in bottom
-        // up manner
-        for (int i = 1; i <= sum; i++) {
-            for (int j = 1; j <= n; j++) {
-                subset[i][j] = subset[i][j - 1];
-                if (i >= set[j - 1])
-                    subset[i][j] = subset[i][j]
-                            || subset[i - set[j - 1]][j - 1];
-            }
-        }
-        return subset[sum][n];
+        boolean taken = false;
+        if (arr[ind] <= target)
+            taken = subsetSumUtil(ind - 1, target - arr[ind], arr, dp);
+        dp[ind][target] = notTaken || taken ? 1 : 0;
+        return notTaken || taken;
     }
 
-    public static void main(String[] args) {
-        boolean res = isSubsetSum(6,new int[]{3, 34, 4, 12, 5, 2},9); // true
-        System.out.println(res);
+    static boolean isSubsetSum(int n, int[] arr, int k) {
+
+        int dp[][] = new int[n][k + 1];
+        for (int row[] : dp)
+            Arrays.fill(row, -1);
+        return subsetSumUtil(n - 1, k, arr, dp);
     }
 }
